@@ -4,12 +4,13 @@ class Solution {
        for(int i = num.length() - 1 ; i >= 0 ; i--)
        {
           char ch = num.charAt(i);
-          int num1 = ch - '0';
-          if(num1 % 2 == 1)
+          int n = ch - '0';
+          if(n % 2 == 1)
           {
              return num.substring(0 , i + 1);
           }
        }
+
        return "";
     }
 }
