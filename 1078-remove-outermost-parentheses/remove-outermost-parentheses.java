@@ -1,6 +1,10 @@
 class Solution { 
     public String removeOuterParentheses(String s) { 
 
+       if(s.length() < 3)
+       {
+          return "";
+       }
        int open = 0;
        StringBuilder sb = new StringBuilder();
        for(int i = 0 ; i < s.length() ; i++)
