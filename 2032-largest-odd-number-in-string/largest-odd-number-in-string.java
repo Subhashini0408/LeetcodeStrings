@@ -7,7 +7,7 @@ class Solution {
           int num1 = ch - '0';
           if(num1 % 2 == 1)
           {
-              return num.substring(0 , i + 1);
+             return num.substring(0 , i + 1);
           }
        }
        return "";
