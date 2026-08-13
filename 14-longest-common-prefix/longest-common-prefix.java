@@ -1,7 +1,8 @@
 class Solution {
-    private static boolean LongestComonLength(String[] strs , int mid)
+    private static boolean LongestCommonLength(String[] strs , int mid)
     {
         String prefix = strs[0].substring(0 , mid);
+
         for(int j = 1 ; j < strs.length ; j++)
         {
             if(!strs[j].startsWith(prefix))
@@ -29,8 +30,7 @@ class Solution {
         while(low <= high)
         {
             int mid = (low + high) / 2;
-
-            if(LongestComonLength(strs , mid))
+            if(LongestCommonLength(strs , mid))
             {
                 low = mid + 1;
             }
@@ -39,6 +39,6 @@ class Solution {
                 high = mid - 1;
             }
         }
-       return strs[0].substring(0 , high);
+        return strs[0].substring(0 , high);
     }
 }
