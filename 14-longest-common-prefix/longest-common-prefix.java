@@ -1,26 +1,44 @@
 class Solution {
+    private static boolean LongestComonLength(String[] strs , int mid)
+    {
+        String prefix = strs[0].substring(0 , mid);
+        for(int j = 1 ; j < strs.length ; j++)
+        {
+            if(!strs[j].startsWith(prefix))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     public String longestCommonPrefix(String[] strs) {
 
         if(strs.length == 1)
         {
             return strs[0];
         }
-        if(strs[0].length() == 0)
+
+        int low = 0;
+        int high = strs[0].length();
+
+        for(String str : strs)
         {
-            return "";
+            high = Math.min(high , str.length());
         }
-       String word = strs[0];
-       for(int i = 0 ; i < word.length() ; i++)
-       {
-          char ch = word.charAt(i);
-          for(int j = 1 ; j < strs.length ; j++)
-          {
-            if(i >= strs[j].length() || ch != strs[j].charAt(i))
+
+        while(low <= high)
+        {
+            int mid = (low + high) / 2;
+
+            if(LongestComonLength(strs , mid))
             {
-                return word.substring(0 , i);
+                low = mid + 1;
             }
-          }
-       }
-       return word;
+            else
+            {
+                high = mid - 1;
+            }
+        }
+       return strs[0].substring(0 , high);
     }
 }
