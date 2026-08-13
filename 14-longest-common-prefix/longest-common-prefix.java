@@ -13,32 +13,33 @@ class Solution {
         return true;
     }
     public String longestCommonPrefix(String[] strs) {
+       
+       if(strs.length == 1)
+       {
+          return strs[0];
+       }
 
-        if(strs.length == 1)
-        {
-            return strs[0];
-        }
+       //Optimized approach using binary search 
+       int low = 0;
+       int high = strs[0].length();
 
-        int low = 0;
-        int high = strs[0].length();
+       for(String str : strs)
+       {
+          high = Math.min(high , str.length());
+       }
 
-        for(String str : strs)
-        {
-            high = Math.min(high , str.length());
-        }
-
-        while(low <= high)
-        {
-            int mid = (low + high) / 2;
-            if(LongestCommonLength(strs , mid))
-            {
-                low = mid + 1;
-            }
-            else
-            {
-                high = mid - 1;
-            }
-        }
-        return strs[0].substring(0 , high);
+       while(low <= high)
+       {
+          int mid = (low + high) / 2;
+          if(LongestCommonLength(strs , mid))
+          {
+            low = mid + 1;
+          }
+          else
+          {
+            high = mid - 1;
+          }
+       }
+       return strs[0].substring(0 , high);
     }
 }
