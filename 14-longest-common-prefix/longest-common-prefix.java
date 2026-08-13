@@ -5,6 +5,10 @@ class Solution {
         {
             return strs[0];
         }
+        if(strs[0].length() == 0)
+        {
+            return "";
+        }
        String word = strs[0];
        for(int i = 0 ; i < word.length() ; i++)
        {
